@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */ 
 class ListaNegociacoes {
 
 	constructor(){
@@ -5,7 +6,7 @@ class ListaNegociacoes {
 	}
 
 	adiciona(negociacao) {
-		this._negociacoes.push(negociacao); 	
+		this._negociacoes.push(negociacao);
 	}
 
 	get negociacoes() {

@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 class NegociacaoController {
 
     constructor() {
@@ -7,16 +8,24 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
         this._listaNegociacoes = new ListaNegociacoes();
+
+        this._negociacoesView = new NegociacoesView($('#negociacoesView'));
+        this._negociacoesView.update(this._listaNegociacoes);
+
+        this._mensagem = new Mensagem();
+        this._mensagemView = new MensagemView($("#mensagemView"));
+        this._mensagemView.update(this._mensagem);
     }
 
     adiciona(event) {
 
         event.preventDefault();
-        this._listaNegociacoes.adiciona(this._criaNegociacao());    
+        this._listaNegociacoes.adiciona(this._criaNegociacao());
+        this._negociacoesView.update(this._listaNegociacoes);
+        this._mensagem.texto = "Negociacao adicionada com sucesso";
+        this._mensagemView.update(this._mensagem);
         this._limpa_formulario();
-
-        console.log(this._listaNegociacoes.negociacoes);
-    }
+      }
 
 
     _criaNegociacao() {
@@ -36,4 +45,3 @@ class NegociacaoController {
         this._inputData.focus();
     }
 }
-

@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 class Negociacao {
 	constructor(data, quantidade, valor) {
 		this._data = new Date(data.getTime());
